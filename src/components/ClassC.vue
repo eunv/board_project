@@ -2,7 +2,8 @@
   <div class="home">
     <nav class="navbar fixed-top bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">class {{}}</a>
+        <a class="navbar-brand" href="#">class C</a>
+        <a class="nav-link active" aria-current="page" href="#" @click = "gotoClass">class</a>
       </div>
     </nav>
 
@@ -25,9 +26,7 @@
         <td>{{ row.age }}</td>
         <td>{{ row.gender }}</td>
         <td>{{ row.phone }}</td>
-        <td>
-          <button type="button" class="btn btn-mdb-color" @click = "gotoDetail(row.id)">Info</button>
-        </td>
+
       </tr>
     </table>
     <p></p>
@@ -63,6 +62,7 @@ export default {
       const self = this;
       const db = firebase.firestore();
       db.collection(self.fbCollection)
+          .where("class",'==','C')
           .get()
           .then((querySnapshot) => {
             if (querySnapshot.size === 0) {
@@ -75,14 +75,8 @@ export default {
             });
           })
     },
-    gotoDetail(value) {
-      const self = this;
-      self.$router.push({name: 'detail', params:{id: value}})
-    },
-    gotoAdd() {
-      const self = this;
-      self.$router.push({name: 'add'})
-    },
+
+
     gotoClass() {
       const self = this;
       self.$router.push({name: 'class'})

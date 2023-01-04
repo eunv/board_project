@@ -8,9 +8,9 @@
     </nav>
 
 
-    <button type="button" class="btn btn-danger" @click = "goMyclass">A</button>
-    <button type="button" class="btn btn-primary" @click = "goMyclass">B</button>
-    <button type="button" class="btn btn-mdb-color" @click = "goMyclass">C</button>
+    <button type="button" class="btn btn-danger" @click = "goA">A</button>
+    <button type="button" class="btn btn-primary" @click = "goB" >B</button>
+    <button type="button" class="btn btn-mdb-color" @click = "goC">C</button>
 
   </div>
 </template>
@@ -53,8 +53,19 @@ export default {
       const self = this;
       self.$router.push({name: 'home'})
     },
-    goMyClass() {
+    goA() {
+      const self = this;
+      self.$router.push({name: 'classA'})
 
+    },
+    goB() {
+      const self = this;
+      self.$router.push({name: 'classB'})
+
+    },
+    goC() {
+      const self = this;
+      self.$router.push({name: 'classC'})
 
     },
 

@@ -81,7 +81,7 @@ export default {
     },
     gotoClass() {
       const self = this;
-      self.$router.push({name: 'class'})
+      self.$router.push('/class')
     }
 
 
